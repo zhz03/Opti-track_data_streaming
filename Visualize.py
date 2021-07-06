@@ -1,7 +1,7 @@
 import Optitrack as OptiT
 import numpy as np
 import time
-import cv2.cv2 as cv2
+import sys
 
 if __name__ == '__main__':
     op = OptiT.OptiTrack()
@@ -18,6 +18,7 @@ if __name__ == '__main__':
             current_time = time.time()
         #if cv2.waitKey(1) & 0xFF == ord('q'):
         if time.time() - begin_time >= 5:
-            np.save('position.npy',position)
+            #np.save('position.npy',position)
+            np.save(f'data/{time.time()}.npy', position)
             print("save .npy done")
-            break
+            sys.exit()
