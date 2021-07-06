@@ -18,7 +18,8 @@ if __name__ == '__main__':
             current_time = time.time()
         #if cv2.waitKey(1) & 0xFF == ord('q'):
         if time.time() - begin_time >= 5:
+            now = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
             #np.save('position.npy',position)
-            np.save(f'data/{time.time()}.npy', position)
+            np.save(f'data/{now}.npy', position)
             print("save .npy done")
             sys.exit()
