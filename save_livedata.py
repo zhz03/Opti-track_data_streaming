@@ -17,7 +17,7 @@ if __name__ == '__main__':
             position.append(op.position)
             current_time = time.time()
         #if cv2.waitKey(1) & 0xFF == ord('q'):
-        if time.time() - begin_time >= 5:
+        if time.time() - begin_time >= 10:
             now = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
             #np.save('position.npy',position)
             np.save(f'data/{now}.npy', position)
