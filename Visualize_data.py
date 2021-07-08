@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
-    position = np.load('data/1625564639.6899378.npy')
+    position = np.load('data/2021-07-07-22_41_08.npy')
 
     fig = plt.figure()
     ax = fig.add_subplot(projection='3d')
