@@ -55,7 +55,7 @@ class OptiTrack():
 
 	# This is a callback function that gets connected to the NatNet client. It is called once per rigid body per frame
 	def receiveRigidBodyFrame(self, id, position, rotation):
-		# print( "Received frame for rigid body", id )
+		print( "Received frame for rigid body", id )
 		self.position = self.postition_enu2ned(position)
 		self.rotation = self.orientation_enu2ned(rotation)
 
