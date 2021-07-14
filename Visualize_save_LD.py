@@ -36,7 +36,8 @@ if __name__ == '__main__':
             #np.save('position.npy',position)
             np.save(f'data/pos_{now}.npy', position)
             np.save(f'data/vel_{now}.npy', velocity)
-            print("save .npy done")        
+            print("save .npy done")  
+            sys.exit()      
             
                 
     
