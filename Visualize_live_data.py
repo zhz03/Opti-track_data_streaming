@@ -15,16 +15,23 @@ if __name__ == '__main__':
     ax.set_xlabel('X Label')
     ax.set_ylabel('Y Label')
     ax.set_zlabel('Z Label')
+    plt.ion()
+    position0 = []
+    position1 = []
     while True:
-        plt.clf()
+        
         pass
         if time.time() - current_time >= 0.01: # 0.1 second refresh rate
+            plt.clf()
             #print('position = %s' % (op.position))
-            position.append(op.position)
+            position0.append(op.position[0])
+            position1.append(op.position[1])
             current_time = time.time()
-            ax.scatter(op.position[0], op.position[1], op.position[2])
+            #ax.scatter(op.position[0], op.position[1], op.position[2])
+            plt.scatter(position0,position1)
             plt.draw()
             #time.sleep(0.01)
+            plt.pause(0.01)
             
                 
     
