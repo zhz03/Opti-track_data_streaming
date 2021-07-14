@@ -37,6 +37,7 @@ class OptiTrack():
 		self.rotation_rate = np.zeros(3)
 
 		self.update_time = time.time()
+		self.id = np.zeros(1)
 
 		# Configure the streaming client to call our rigid body handler on the emulator to send data out.
 		streamingClient.newFrameListener = self.receiveNewFrame
@@ -55,10 +56,11 @@ class OptiTrack():
 
 	# This is a callback function that gets connected to the NatNet client. It is called once per rigid body per frame
 	def receiveRigidBodyFrame(self, id, position, rotation):
-		print( "Received frame for rigid body", id )
+		# print( "Received frame for rigid body", id )
+		
 		self.position = self.postition_enu2ned(position)
 		self.rotation = self.orientation_enu2ned(rotation)
-
+		self.id = id
 		current_time = time.time()
 		dt = 0.01 # (current_time - self.update_time)
 		self.velocity = (self.position - self.position_prev) / dt
@@ -94,5 +96,5 @@ if __name__ == "__main__":
 		pass
 		if time.time()-current_time >= 0.1:
 			#print('position = %s rotation = %s' % (op.position, op.rotation))
-			print('position = %s' % (op.position))
+			print('id =%s, position = %s' % (op.id,op.position))
 			current_time = time.time()
