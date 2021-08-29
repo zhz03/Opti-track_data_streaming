@@ -1,14 +1,25 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-if __name__ == '__main__':
-    position = np.load('data/pos_2021-07-14-02_37_40.npy')
+def get_xyz(position):
+    position10 = []
+    position11 = []
+    position12 = []
+    for i in range(len(position)):
+        position10.append(position[i][0])
+        position11.append(position[i][1])
+        position12.append(position[i][2])
+    
+    return position10,position11,position12
 
+if __name__ == '__main__':
+    position = np.load('1_pos_time/pos_2021-08-27-20_27_21.npy')
+    
+    position10,position11,position12 = get_xyz(position)
     fig = plt.figure()
     ax = fig.add_subplot(projection='3d')
     
-    for i in range(len(position)):
-        ax.scatter(position[i][0], position[i][1], position[i][2])
+    ax.plot(position10, position11, position12)
         
     ax.set_xlabel('X Label')
     ax.set_ylabel('Y Label')
