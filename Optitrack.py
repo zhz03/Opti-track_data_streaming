@@ -94,7 +94,7 @@ if __name__ == "__main__":
 
 	while True:
 		pass
-		if time.time()-current_time >= 0.1:
+		if time.time()-current_time >= 0.01:
 			#print('position = %s rotation = %s' % (op.position, op.rotation_rate))
-			print('id =%s, position = %s' % (op.id,op.position))
+			print('id =%s, position = %s,velocity' % (op.id,op.position,op.velocity))
 			current_time = time.time()
