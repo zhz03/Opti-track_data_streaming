@@ -10,7 +10,10 @@ if __name__ == '__main__':
     position1 = []
     position2 = []
     position3 = []
-
+    time1 = []
+    time2 = []
+    time3 = []
+    
     id1 = 27
     id2 = 28
     id3 = 29
@@ -23,12 +26,13 @@ if __name__ == '__main__':
         if time.time() - current_time >= 0.01: # 0.1 second refresh rate
             #print('position = %s' % (op.position))
             if op.id == id1:
+            	time1.append(current_time)
             	position1.append(op.position)
-            	
             elif op.id == id2:
+            	time2.append(current_time)
             	position2.append(op.position)
-            
             else:
+            	time3.append(current_time)
             	position3.append(op.position)
             current_time = time.time()
 	    # print('id =%s, position = %s' % (op.id,))
@@ -43,7 +47,10 @@ if __name__ == '__main__':
             np.save(f'pos_time/pos1_{now}.npy', position1)
             np.save(f'pos_time/pos2_{now}.npy', position2)
             np.save(f'pos_time/pos3_{now}.npy', position3)
-           
+            
+            np.save(f'pos_time/time1_{now}.npy', time1)
+            np.save(f'pos_time/time2_{now}.npy', time2)
+            np.save(f'pos_time/time3_{now}.npy', time3)
             
             print("save .npy done")
             sys.exit()
