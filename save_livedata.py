@@ -9,12 +9,16 @@ if __name__ == '__main__':
     current_time = time.time()
     position = []
     velocity = []
+    time = []
+        
+    current_time = time.time()
     begin_time = time.time()
     while True:
 
         pass
         if time.time() - current_time >= 0.01: # 0.1 second refresh rate
             #print('position = %s' % (op.position))
+            time.append(current_time-begin_time)
             position.append(op.position)
             velocity.append(op.velocity)
             current_time = time.time()
@@ -24,5 +28,6 @@ if __name__ == '__main__':
             #np.save('position.npy',position)
             np.save(f'1_pos_time/pos_{now}.npy', position)
             np.save(f'1_pos_time/vel_{now}.npy', velocity)
+            np.save(f'1_pos_time/time_{now}.npy', time)
             print("save .npy done")
             sys.exit()
