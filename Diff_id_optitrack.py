@@ -55,6 +55,10 @@ if __name__ == '__main__':
     time2 = []
     time3 = []
     
+    velocity1 = []
+    velocity2 = []
+    velocity3 = []
+    
     id1 = 0
     id2 = 0
     id3 = 0
@@ -76,12 +80,15 @@ if __name__ == '__main__':
             if op.id == id1:
             	time1.append(current_time-begin_time)
             	position1.append(op.position)
+            	velocity1.append(op.velocity)
             elif op.id == id2:
             	time2.append(current_time-begin_time)
             	position2.append(op.position)
+            	velocity2.append(op.velocity)
             else:
             	time3.append(current_time-begin_time)
             	position3.append(op.position)
+            	velocity3.append(op.velocity)
             current_time = time.time()
 	    # print('id =%s, position = %s' % (op.id,))
 	    
@@ -92,14 +99,18 @@ if __name__ == '__main__':
             now = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
             #np.save('position.npy',position)
             
-            np.save(f'pos_time/pos1_{now}.npy', position1)
-            np.save(f'pos_time/pos2_{now}.npy', position2)
-            np.save(f'pos_time/pos3_{now}.npy', position3)
+            np.save(f'pos_vel_time/pos1_{now}.npy', position1)
+            np.save(f'pos_vel_time/pos2_{now}.npy', position2)
+            np.save(f'pos_vel_time/pos3_{now}.npy', position3)
             
-            np.save(f'pos_time/time1_{now}.npy', time1)
-            np.save(f'pos_time/time2_{now}.npy', time2)
-            np.save(f'pos_time/time3_{now}.npy', time3)
-            
+            np.save(f'pos_vel_time/time1_{now}.npy', time1)
+            np.save(f'pos_vel_time/time2_{now}.npy', time2)
+            np.save(f'pos_vel_time/time3_{now}.npy', time3)
+
+            np.save(f'pos_vel_time/velocity1_{now}.npy', velocity1)
+            np.save(f'pos_vel_time/velocity2_{now}.npy', velocity2)
+            np.save(f'pos_vel_time/velocity3_{now}.npy', velocity3)   
+                     
             print("save .npy done")
             sys.exit()
         
