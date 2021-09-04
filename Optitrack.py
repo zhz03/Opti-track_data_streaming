@@ -71,7 +71,8 @@ class OptiTrack():
 		self.rotation_prev = self.rotation
 
 	def postition_enu2ned(self, position):
-		return np.array([position[0], position[2], -position[1]]) # north-east-down
+		# return np.array([position[0], position[2], -position[1]]) # north-east-down
+		return np.array([position[0], position[2], position[1]]) # x-y-up
 
 	def orientation_enu2ned(self, quaternion):
 		# Change order from xyzw to wxyz
